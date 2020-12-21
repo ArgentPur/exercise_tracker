@@ -9,3 +9,5 @@ const newExercise = new Schema( {
     reps: {type: String, required: false},
     sets: {type: String, required: false}
 }) 
+
+module.exports = Schema;
