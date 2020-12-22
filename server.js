@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
+let db = require("./models")
 
 const app = express();
-const port = process.env.MONGOOSE || 3000
+const PORT = process.env.MONGOOSE || 3000
 
 require(".routes/api_routes")(app);
 require(".routes/html_routes")(app);
