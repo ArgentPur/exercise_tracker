@@ -16,4 +16,17 @@ express.post("/api", (req, res) => {
     })
 })
 
+router.put("/api/:id", ({ body, params}) =>{
+    db.Exercise.findByIdAndUpdate(
+        params.id,
+        { $push: {exercises: body}},
+        {new: true, runValidators: true}
+    ).then(results =>{
+        res.json(results);
+    }).catch(err => {
+        res.json(err);
+    });
+});
+
+
 module.exports = express;
