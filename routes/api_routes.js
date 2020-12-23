@@ -9,6 +9,12 @@ express.get("/api", (req, res) => {
     })
 })
 
+express.post("/api", (req, res) => {
+    db.Exercise.create({})
+    .then(results => {
+        res.json(results)
+    })
+})
 
 module.exports = function() {
     app.get()
