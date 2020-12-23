@@ -5,8 +5,8 @@ let db = require("./models")
 const app = express();
 const PORT = process.env.MONGOOSE || 3000
 
-require(".routes/api_routes")(app);
-require(".routes/html_routes")(app);
+app.use(require(".routes/api_routes")(app));
+app.use(require(".routes/html_routes")(app));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost",)
 
