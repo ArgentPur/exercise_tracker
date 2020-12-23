@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express").Router();
 const db = require("../models");
 
 express.get("/api", (req, res) => {
@@ -16,8 +16,4 @@ express.post("/api", (req, res) => {
     })
 })
 
-module.exports = function() {
-    app.get()
-
-    app.put()
-}
+module.exports = express;
