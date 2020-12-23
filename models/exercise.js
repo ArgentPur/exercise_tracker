@@ -10,4 +10,13 @@ const newExercise = new Schema( {
     sets: {type: String, required: false}
 }) 
 
-module.exports = Schema;
+
+newExercise.virtual("totalDuration").get(function() {
+      return this.exercises.reduce((total, exercise) => {
+        return total + exercise.duration;
+      }, 0);
+    });
+  
+const Exercise = mongoose.model("Exercise", newExercise);
+
+module.exports = Exercise;
